@@ -1,0 +1,8 @@
+Given the web page @ this module creates the file “articles.txt” which contains all the elements with the “article” tag, separated by a line with 40 “=” signs.
+
+
+Esta es la primera página de todos los artículos de interés. El programa @web_scraper.py descarga correctamente los artículos de la primera página, pero no logra descargar los de las siguientes 2 páginas. El url de la página 3, por ejemplo es "https://www.essenciales.com/aceites_esenciles/?page=3". Podrías corregir el código?
+
+
+
+

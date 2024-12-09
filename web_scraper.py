@@ -34,7 +34,7 @@ def extract_articles():
             time.sleep(1)
             
             # Construir la URL con el parámetro page correcto
-            url = f"{base_url}?paged={page}" if page > 1 else base_url
+            url = f"{base_url}?page={page}" if page > 1 else base_url
             print(f"Procesando página {page} de {total_pages}...")
             
             response = requests.get(url)
@@ -51,8 +51,6 @@ def extract_articles():
         
         # Crear el archivo articles.txt
         with open('articles.txt', 'w', encoding='utf-8') as f:
-            # separator = '=' * 40 + '\n'
-            
             for article in all_articles:
                 texto = article.get_text()
                 texto = '\t'.join(filter(None, texto.split('\n')))
@@ -60,7 +58,7 @@ def extract_articles():
                 texto = re.sub(r'[\t\s]*Cantidad[\t\s]*', '', texto)
                 texto = extract_price_and_volume(texto)  # Añadir precio por ml
                 f.write(texto)
-                f.write('\n')  # + separator)
+                f.write('\n')
                 
         print(f"Se han extraído {len(all_articles)} artículos y guardado en articles.txt")
         
